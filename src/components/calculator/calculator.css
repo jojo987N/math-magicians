@@ -36,3 +36,15 @@
   /* border: 1px solid red; */
   background: #f4933c;
 }
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+button:active {
+  opacity: 0.4;
+}
