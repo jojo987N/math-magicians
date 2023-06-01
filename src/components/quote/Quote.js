@@ -9,15 +9,20 @@ export default function Quote() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`${URL_BASE}=happiness`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Api-Key': API_KEY,
-        },
-      });
-      const json = await res.json().catch(() => setHasError(true));
-      setData(json);
+      try {
+        const res = await fetch(`${URL_BASE}=happiness`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Api-Key': API_KEY,
+          },
+        });
+        const json = await res.json();
+        setData(json);
+      } catch (error) {
+        setHasError(true);
+      }
+
       setIsLoading(false);
     })();
   }, [setData]);
