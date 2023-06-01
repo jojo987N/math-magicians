@@ -1,0 +1,13 @@
+blockquote {
+  margin: 4% 5%;
+}
+
+blockquote::before {
+  content: open-quote;
+  font-size: 35px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.loading {
+  margin: 4% 5%;
+}
