@@ -1,10 +1,14 @@
 // import logo from './logo.svg';
 import './App.css';
 import Calculator from './components/calculator/Calculator';
+import Quote from './components/quote/Quote';
 
 function App() {
   return (
-    <Calculator />
+    <div>
+      <Calculator />
+      <Quote />
+    </div>
   );
 }
 
