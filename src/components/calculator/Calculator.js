@@ -4,31 +4,38 @@ import './calculator.css';
 import Display from '../display/Display';
 
 export default function Calculator() {
-  const [obj, setObj] = useState({ total: 0 });
+  const [obj, setObj] = useState({ total: '0' });
   const [inputs, setInputs] = useState('');
   function handleClick(e) {
     const input = e.target.textContent;
-    console.log({ ...obj, ...calculate(obj, input) });
     setObj({ ...obj, ...calculate(obj, input) });
     setInputs((val) => {
-      if (/^$/.test(val) && /[+\-÷x]/.test(input)) { return `${obj.total}${input}`; }
-      const inputs = val + input;
-      return /[+\-÷x]{2}/.test(inputs.slice(-2)) ? inputs.slice(0, -2) + inputs.slice(-1) : inputs;
+      const inputs = val + (/\+\/-/.test(input) ? '' : input);
+      if (input.match(/\+\/-/)) return `${-1 * parseFloat(obj.total || val)}`;
+      if (/(AC|=)/.test(inputs)) { return ''; }
+      if (/^$/.test(val) && /[+\-÷x%]/.test(input)) { return `${obj.total}${input}`; }
+      return /[+\-÷x%]{2}/.test(inputs.slice(-2)) ? inputs.slice(0, -2) + inputs.slice(-1) : inputs;
     });
   }
   return (
     <div className="container">
       <div className="item">
         <div>
-          <Display inputs={inputs} setInputs={setInputs} obj={obj} />
-          {/* <div>{(obj.total && obj.next) || obj.next ? obj.next : obj.total || 0}</div> */}
-          {/* (\d+\.?\d*)[+\-÷x](\d+\.?\d*)[+\-÷x=] */}
-          <div>{(/(\d+\.?\d*)[+\-÷x](\d+\.?\d*)[+\-÷x=]/.test(inputs) && obj.total) || (/^$/.test(inputs) && (obj.total || 0))}</div>
+          <Display inputs={inputs.replace(/\+\/-/, '')} />
+          <div>
+
+            {(/(\d+\.?\d*)[+\-÷x%](\d+\.?\d*)[+\-÷x%=]/.test(inputs) && (
+            <div className="result">
+              <span className="equal">=</span>
+              <span className="total">{obj.total}</span>
+            </div>
+            )) || (/^$/.test(inputs) && (obj.total || '0'))}
+          </div>
         </div>
       </div>
       <button type="button" className="item" onClick={handleClick}>AC</button>
-      <button type="button" className="item">+/-</button>
-      <button type="button" className="item">%</button>
+      <button type="button" className="item" onClick={handleClick}>+/-</button>
+      <button type="button" className="item" onClick={handleClick}>%</button>
       <button type="button" className="item" onClick={handleClick}>÷</button>
       <button type="button" className="item" onClick={handleClick}>7</button>
       <button type="button" className="item" onClick={handleClick}>8</button>
