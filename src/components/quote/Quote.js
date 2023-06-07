@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './quote.css';
+import './quote.scss';
 import URL_BASE, { API_KEY } from '../../global';
 
 export default function Quote() {
@@ -27,5 +28,9 @@ export default function Quote() {
     })();
   }, [setData]);
 
-  return (hasError && <div>Error! Try again</div>) || (isLoading ? <div className="loading">Loading...</div> : <blockquote>{`${data[0].quote} –${data[0].author}`}</blockquote>);
+  return (
+    <div className="content">
+      {(hasError && (<div>Error! Try again</div>)) || isLoading ? (<div className="loading">Loading...</div>) : (<blockquote>{`${data[0].quote} –${data[0].author}`}</blockquote>)}
+    </div>
+  );
 }

@@ -1,11 +1,22 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60vh;
+}
+
 blockquote {
   margin: 4% 5%;
+  position: relative;
 }
 
 blockquote::before {
   content: open-quote;
-  font-size: 35px;
+  font-size: 55px;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  position: absolute;
+  left: -28px;
+  top: -28px;
 }
 
 .loading {
