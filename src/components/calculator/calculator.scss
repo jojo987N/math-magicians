@@ -1,0 +1,5 @@
+@import "../layout/layout.scss";
+
+p {
+  @include font-generic(normal, 35px, 400, 1px, hsl(0, 0%, 35%));
+}
