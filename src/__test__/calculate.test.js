@@ -32,6 +32,14 @@ it('Check when total ≠ 0, if button name is ".", next property is follow by ".
   expect(obj.next).toEqual(`${randomNumber}.`);
 });
 
-
-
-})
+it('Check if button name is "=", and operation is "+" , result is equal total + next property', () => {
+  let obj = { total: 0 };
+  const randomNumber1 = Math.floor(Math.random() * 10).toString();
+  obj = { ...obj, ...calculate(obj, randomNumber1) };
+  obj = { ...obj, ...calculate(obj, '+') };
+  const randomNumber2 = Math.floor(Math.random() * 10).toString();
+  obj = { ...obj, ...calculate(obj, randomNumber2) };
+  obj = { ...obj, ...calculate(obj, '=') };
+  expect((parseInt(randomNumber1, 10) + parseInt(randomNumber2, 10)).toString()).toEqual(obj.total);
+});
+});
