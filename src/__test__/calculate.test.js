@@ -8,4 +8,12 @@ describe('Tests for calculate function ', () => {
    obj = { ...obj, ...calculate(obj, buttonName) };
    expect(obj.next).toBe(buttonName);
  });
+
+ it('Check if button name is AC, all property is equal null', () => {
+  let obj = { total: 0 };
+  const buttonName = 'AC';
+  obj = { ...obj, ...calculate(obj, buttonName) };
+  expect(obj).toEqual({ total: null, next: null, operation: null });
+});
+
 })
