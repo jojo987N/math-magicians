@@ -6,6 +6,7 @@ import './calculator.scss';
 export default function Calculator() {
   const [obj, setObj] = useState({ total: 0 });
   function handleClick(e) {
+    console.log({ ...obj, ...calculate(obj, e.target.textContent) });
     setObj({ ...obj, ...calculate(obj, e.target.textContent) });
   }
   return (
