@@ -1,0 +1,11 @@
+@import "../layout/layout.scss";
+
+section {
+  h2 {
+    @include font-generic(normal, 35px, 400, 1px, hsl(0, 0%, 35%));
+  }
+
+  p {
+    @include font-generic(normal, 20px, 400, 1px, hsl(0, 0%, 35%));
+  }
+}
