@@ -1,6 +1,6 @@
 @import "../layout/layout.scss";
 
-blockquote, .loading{
+blockquote,
+.loading {
   @include font-generic(normal, 25px, 400, 1px, hsl(0, 0%, 35%));
 }
-
