@@ -60,7 +60,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Comming soon
+[Live Demo Link](https://math-magicians-5ulc.onrender.com/)
 ## 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
@@ -101,7 +101,7 @@ Open index.html using live server extension.
 
 ### Deployment
 
-> Comming soon
+[Live Demo Link](https://math-magicians-5ulc.onrender.com/)
 
 ## 👥 Authors <a name="getting-started"></a>
 
