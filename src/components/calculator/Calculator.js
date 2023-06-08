@@ -6,14 +6,14 @@ import './calculator.scss';
 export default function Calculator() {
   const [obj, setObj] = useState({ total: 0 });
   function handleClick(e) {
-    console.log({ ...obj, ...calculate(obj, e.target.textContent) });
     setObj({ ...obj, ...calculate(obj, e.target.textContent) });
   }
   return (
     <div className="container">
       <p>Let&apos;s do some math!</p>
       <div className="calculator">
-        <div className="item">{(obj.total && obj.next) || obj.next ? obj.next : obj.total || 0}</div>
+        <input className="item total" readOnly value={(obj.total && obj.next) || obj.next ? obj.next : obj.total || 0} />
+        {/* <div className="item">{(obj.total && obj.next) || obj.next ? obj.next : obj.total || 0}</div> */}
         <button type="button" className="item" onClick={handleClick}>AC</button>
         <button type="button" className="item" onClick={handleClick}>+/-</button>
         <button type="button" className="item" onClick={handleClick}>%</button>
