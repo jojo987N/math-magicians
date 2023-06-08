@@ -12,7 +12,8 @@ export default function Calculator() {
     <div className="container">
       <p>Let&apos;s do some math!</p>
       <div className="calculator">
-        <div className="item">{(obj.total && obj.next) || obj.next ? obj.next : obj.total || 0}</div>
+        <input className="item total" readOnly value={(obj.total && obj.next) || obj.next ? obj.next : obj.total || 0} />
+        {/* <div className="item">{(obj.total && obj.next) || obj.next ? obj.next : obj.total || 0}</div> */}
         <button type="button" className="item" onClick={handleClick}>AC</button>
         <button type="button" className="item" onClick={handleClick}>+/-</button>
         <button type="button" className="item" onClick={handleClick}>%</button>

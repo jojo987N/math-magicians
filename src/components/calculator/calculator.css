@@ -52,3 +52,7 @@ button:hover {
 button:active {
   opacity: 0.4;
 }
+
+.total {
+  text-align: right;
+}
